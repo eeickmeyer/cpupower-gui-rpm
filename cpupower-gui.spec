@@ -19,6 +19,7 @@ BuildRequires:  python3
 BuildRequires:  glib2-devel
 BuildRequires:  python3-devel
 BuildRequires:  gettext
+BuildRequires:  systemd-rpm-macros
 
 Requires:       hicolor-icon-theme
 Requires:       polkit
