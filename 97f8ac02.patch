@@ -1,0 +1,23 @@
+From 97f8ac02fe33e412b59d3f3968c16a217753e74b Mon Sep 17 00:00:00 2001
+From: vagnum08 <16070176+vagnum08@users.noreply.github.com>
+Date: Tue, 18 Jan 2022 19:19:52 +0200
+Subject: [PATCH] Update data/meson.build
+
+Remove positional argument from `i18n.merge_file`.
+`i18n.merge_file` does not take any positional arguments. This has become a hard error in the next Meson release.
+---
+ data/meson.build | 1 -
+ 1 file changed, 1 deletion(-)
+
+Index: cpupower-gui-0.7.2/data/meson.build
+===================================================================
+--- cpupower-gui-0.7.2.orig/data/meson.build
++++ cpupower-gui-0.7.2/data/meson.build
+@@ -10,7 +10,6 @@ desktop_conf = configuration_data()
+ desktop_conf.set('icon', application_id)
+ 
+ desktop_file = i18n.merge_file(
+-  'desktop',
+    input: configure_file(
+     input: files('org.rnd2.cpupower_gui.desktop.in.in'),
+     output: 'org.rnd2.cpupower_gui.desktop.in',

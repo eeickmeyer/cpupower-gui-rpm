@@ -1,0 +1,49 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" (C) Copyright 2019 Evangelos Rigas <e.rigas@cranfield.ac.uk>,
+.\"
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH CPUPOWER-GUI 1 "September 20 2019"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+cpupower-gui \- Set the scaling frequencies and governor of a CPU
+.SH SYNOPSIS
+.B cpupower-gui
+
+.SH DESCRIPTION
+This manual page documents briefly the \fBcpupower-gui\fP command.
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+\fBcpupower-gui\fP is a graphical (GUI) utility to change the CPU frequency.
+.br
+This utility can change the operating frequency of the CPU for each core separately.
+Additionally, the cpu governor can be changed.
+The program can detect offline cores and only present the available ones.
+Furthermore, if a core doesn't support frequency scaling, is not shown.
+There is also an option to apply the same settings to all cores simultaneously.
+.br
+To apply the settings, the user must be \fIlocal\fP and \fIactive\fP, as well as in group \fBsudo\fP.
+Local and active users not in this group must authenticate themselves as admin in order to apply the settings.
+
+.SH SEE ALSO
+cpupower(1), cpupower-set(1), cpupower-info(1), cpupower-idle(1), cpupower-frequency-set(1), cpupower-frequency-info(1), cpupower-monitor(1), powertop(1)
+.br
+
+.SH AUTHORS
+Evangelos Rigas <erigas@rnd2.org>
+.br
+Hungarian translation written by Barcza Károly <kbarcza@blackpanther.hu>
