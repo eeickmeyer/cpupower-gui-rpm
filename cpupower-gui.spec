@@ -43,10 +43,24 @@ separately. Additionally, the cpu governor can be changed.
 %meson_install
 install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 
+%post
+%systemd_post cpupower-gui.service
+%systemd_user_post cpupower-gui-user.service
+
+%preun
+%systemd_preun cpupower-gui.service
+%systemd_user_preun cpupower-gui-user.service
+
+%postun
+%systemd_postun cpupower-gui.service
+
 %files
 
 %license COPYING
 %doc README.md
+%dir %{_datadir}/cpupower-gui
+%dir %{_libdir}/cpupower-gui
+%dir %{_sysconfdir}/cpupower_gui.d
 %{_bindir}/cpupower-gui
 %{_mandir}/man1/cpupower-gui.1*
 %{_datadir}/applications/org.rnd2.cpupower_gui.desktop
@@ -98,3 +112,4 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %changelog
 * Fri Jan 16 2026 Erich Eickmeyer <erich@ericheickmeyer.com> - 1.0.0-1
 - Initial Fedora RPM release
+
