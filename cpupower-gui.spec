@@ -48,16 +48,16 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %{__sed} -i 's|Exec=gapplication launch org.rnd2.cpupower_gui|Exec=cpupower-gui|' %{buildroot}%{_datadir}/applications/org.rnd2.cpupower_gui.desktop
 
 %post
-%systemd_post cpupower-gui.service
-%systemd_user_post cpupower-gui-user.service
+%systemd_post %{name}.service
+%systemd_user_post %{name}-user.service
 
 %preun
-%systemd_preun cpupower-gui.service
-%systemd_user_preun cpupower-gui-user.service
+%systemd_preun %{name}.service
+%systemd_user_preun %{name}-user.service
 
 %postun
-%systemd_postun cpupower-gui.service
-%systemd_user_postun cpupower-gui-user.service
+%systemd_postun %{name}.service
+%systemd_user_postun %{name}-user.service
 if [ -n "$1" ]; then
     true
 fi
@@ -89,9 +89,9 @@ fi
 %config(noreplace) %{_sysconfdir}/cpupower_gui.d/my_profile.profile.ex
 
 # Systemd services
-%{_unitdir}/cpupower-gui-helper.service
-%{_unitdir}/cpupower-gui.service
-%{_userunitdir}/cpupower-gui-user.service
+%{_unitdir}/%{name}-helper.service
+%{_unitdir}/%{name}.service
+%{_userunitdir}/%{name}-user.service
 
 # Helper binary
 %{_libdir}/cpupower-gui/cpupower-gui-helper
@@ -120,4 +120,6 @@ fi
 %changelog
 * Fri Jan 16 2026 Erich Eickmeyer <erich@ericheickmeyer.com> - 1.0.0-1
 - Initial Fedora RPM release
+
+
 
