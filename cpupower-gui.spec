@@ -58,9 +58,10 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %postun
 %systemd_postun %{name}.service
 %systemd_user_postun %{name}-user.service
-if [ -n "$1" ]; then
-    true
-fi
+
+%posttrans
+%systemd_posttrans_with_restart %{name}.service
+%systemd_user_posttrans_with_restart %{name}-user.service
 
 %files
 
