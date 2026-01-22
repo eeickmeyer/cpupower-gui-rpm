@@ -44,6 +44,9 @@ separately. Additionally, the cpu governor can be changed.
 %meson_install
 install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 
+# Ensure desktop Exec refers to the packaged binary so rpmlint can find it
+%{__sed} -i 's|Exec=gapplication launch org.rnd2.cpupower_gui|Exec=cpupower-gui|' %{buildroot}%{_datadir}/applications/org.rnd2.cpupower_gui.desktop
+
 %post
 %systemd_post cpupower-gui.service
 %systemd_user_post cpupower-gui-user.service
@@ -55,7 +58,9 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %postun
 %systemd_postun cpupower-gui.service
 %systemd_user_postun cpupower-gui-user.service
-:
+if [ -n "$1" ]; then
+	true
+fi
 
 %files
 
