@@ -59,7 +59,7 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %systemd_postun cpupower-gui.service
 %systemd_user_postun cpupower-gui-user.service
 if [ -n "$1" ]; then
-	true
+    true
 fi
 
 %files
