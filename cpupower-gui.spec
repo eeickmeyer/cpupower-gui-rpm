@@ -26,7 +26,7 @@ Requires:       polkit
 Requires:       python3-dbus
 Requires:       python3-gobject
 Requires:       python3-xdg
-Requires:       glib2
+Requires:       /usr/bin/gapplication
 
 %description
 cpupower-gui is a graphical (GUI) utility to change the CPU frequency.
@@ -55,6 +55,7 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %postun
 %systemd_postun cpupower-gui.service
 %systemd_user_postun cpupower-gui-user.service
+:
 
 %files
 
