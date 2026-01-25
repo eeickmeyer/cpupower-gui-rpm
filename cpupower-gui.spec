@@ -2,8 +2,7 @@ Name:           cpupower-gui
 Version:        1.0.0
 Release:        1%{?dist}
 Summary:        GUI utility to change the CPU frequency
-
-%global debug_package %{nil}
+BuildArch:      noarch
 
 License:        GPL-3.0-or-later
 URL:            https://github.com/vagnum08/cpupower-gui
@@ -58,6 +57,8 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_mandir}/man1/cpupower-gui.1
 %postun
 %systemd_postun %{name}.service
 %systemd_user_postun %{name}-user.service
+
+: # ensure %postun is not empty for rpmlint
 
 %posttrans
 %systemd_posttrans_with_restart %{name}.service
