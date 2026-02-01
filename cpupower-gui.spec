@@ -13,9 +13,8 @@ Patch0:         97f8ac02.patch
 BuildRequires:  desktop-file-utils
 BuildRequires:  meson >= 0.50.0
 BuildRequires:  ninja-build
-BuildRequires:  pkgconf
 BuildRequires:  python3
-BuildRequires:  glib2-devel
+BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  python3-devel
 BuildRequires:  gettext
 BuildRequires:  systemd-rpm-macros
